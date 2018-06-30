@@ -93,7 +93,7 @@ var CampaignIndex = function (_Component) {
                     fileName: _jsxFileName,
                     lineNumber: 12
                 }
-            }, 'Welcome to the show page.');
+            }, 'Campaign Page!');
         }
     }]);
 
