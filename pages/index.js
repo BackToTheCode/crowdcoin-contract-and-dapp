@@ -1,12 +1,17 @@
-import React, { Component } from 'react';
-import factory from '../ethereum/factory';
-import { Card } from 'semantic-ui-react';
+import React, { Component } from "react";
+import { Card, Button } from "semantic-ui-react";
+import { Link } from "../routes";
+
+import factory from "../ethereum/factory";
+
+import Layout from "../components/Layout";
 // import 'semantic-ui-css/semantic.min.css';
 
 class CampaignIndex extends Component {
-
     static async getInitialProps() {
-        const campaigns = await factory.methods.getDeployedCampaigns().call();
+        const campaigns = await factory.methods
+            .getDeployedCampaigns()
+            .call();
         return { campaigns };
     }
 
@@ -14,22 +19,35 @@ class CampaignIndex extends Component {
         const items = this.props.campaigns.map(address => {
             return {
                 header: address,
-                description: <a>View campaign</a>,
+                description: (
+                    <Link route={`/campaigns/${address}`}>
+                        <a>View campaign</a>
+                    </Link>
+                ),
                 fluid: true
-            }
+            };
         });
 
         return <Card.Group items={items} />;
-
     }
 
     render() {
         return (
-            <div>
-                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css"></link>
-                <h1>{this.renderCampaigns()}</h1>
-            </div>
-        )
+            <Layout>
+                <h3>Open campaigns</h3>
+                <Link route="/campaigns/new">
+                    <a>
+                        <Button
+                            floated="right"
+                            content="Create Campaign"
+                            icon="add circle"
+                            primary
+                        />
+                    </a>
+                </Link>
+                <div>{this.renderCampaigns()}</div>
+            </Layout>
+        );
     }
 }
 
