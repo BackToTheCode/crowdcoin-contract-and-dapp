@@ -8,6 +8,7 @@
     "compile": "node ./ethereum/compile.js",
     "deploy": "node ./ethereum/deploy.js",
     "dev": "node server.js",
+    "start": "node server.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
