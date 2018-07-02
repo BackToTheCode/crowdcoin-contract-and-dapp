@@ -1,0 +1,10 @@
+Want to deploy factory contract and save the resulting address for retrieval later.
+
+We want factory.js to have access to that variable.
+
+-----
+
+1/ Deploy contract as normal
+2/ Wait for resulting address
+3/ Use FS library to write the output to a JSON? file
+4/ On the factory file use FS library to read and parse the JSON file and use the value
