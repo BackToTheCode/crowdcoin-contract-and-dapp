@@ -9,6 +9,7 @@
     "deploy": "node ./ethereum/deploy.js",
     "dev": "node server.js",
     "start": "node server.js",
+    "heroku-prebuild": "next build", 
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
